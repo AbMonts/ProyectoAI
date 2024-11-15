@@ -1,0 +1,23 @@
+<!-- clasificacion/templates/clasificacion/classify.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clasificación de Radiografías</title>
+</head>
+<body>
+    <h2>Clasificar Radiografía</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Subir Imagen</button>
+    </form>
+
+    {% if result %}
+        <h3>Resultado de la clasificación: {{ result }}</h3>
+        {% if image_url %}
+            <img src="{{ image_url }}" alt="Imagen cargada">
+        {% endif %}
+    {% endif %}
+</body>
+</html>

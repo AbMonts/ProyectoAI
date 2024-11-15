@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado de la Clasificación</title>
+</head>
+<body>
+    <h1>Resultado de la Clasificación</h1>
+    <p>La radiografía ha sido clasificada como: <strong>{{ result }}</strong></p>
+    <img src="{{ img_url }}" alt="Imagen subida" width="300">
+    <br><br>
+    <a href="{% url 'predict_image' %}">Cargar otra imagen</a>
+</body>
+</html>
