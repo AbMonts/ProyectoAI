@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portada</title>
+    <!-- Bootstrap CSS -->
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <style>
+        body {
+            background-color: #e8f5e9; /* Fondo verde claro */
+        }
+        .navbar {
+            background-color: #388e3c; /* Verde oscuro */
+        }
+        .navbar-brand, .nav-link {
+            color: #ffffff !important;
+        }
+        .navbar-toggler-icon {
+            background-color: #ffffff;
+        }
+        .hero-section {
+            background-color: #a5d6a7; /* Verde suave */
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #2e7d32; /* Verde más intenso */
+        }
+        .btn-green {
+            color: #ffffff;
+            background-color: #4caf50; /* Verde medio */
+            border: none;
+        }
+        .btn-green:hover {
+            background-color: #388e3c; /* Verde oscuro */
+        }
+        .lead {
+            color: #1b5e20; /* Verde profundo */
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Clasificador COVID-19</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/clasificacion/">Clasificación</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido principal -->
+    <div class="container text-center mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="hero-section">
+                    <!-- Imagen representativa -->
+                    <img src="{% static 'images/itsurLogo.png' %}" alt="Radiografía" class="img-fluid mb-4" style="border-radius: 10px; border: 3px solid #4caf50;">
+                    
+                    <h1 class="display-4">Bienvenidoo al Clasificador de COVID-19</h1>
+                    <p class="lead mt-3">
+                        Esta herramienta utiliza inteligencia artificial, machine learning que es una rama de esta, para clasificar radiografias en dos categorias: <strong>Con COVID-19</strong> y <strong>Sin COVID-19</strong>.
+                    </p>
+                    <hr>
+                    <p>Haz clic en el boton de abajo para comenzar :).</p>
+                    <button class="btn btn-green btn-lg" onclick="location.href='/clasificacion/'">Ir a Clasificacion</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>

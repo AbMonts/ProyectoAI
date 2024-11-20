@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cargar Imagen</title>
+    <!-- Bootstrap CSS -->
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <style>
+        body {
+            background-color: #e8f5e9; /* Fondo verde claro */
+        }
+        .navbar {
+            background-color: #388e3c; /* Verde oscuro */
+        }
+        .navbar-brand, .navbar-nav .nav-link {
+            color: #ffffff !important;
+        }
+        .form-container {
+            background: #ffffff; /* Fondo blanco para el formulario */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            background-color: #4caf50; /* Verde mediano */
+            color: white;
+            border: none;
+        }
+        button:hover {
+            background-color: #388e3c; /* Verde oscuro */
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Clasificador COVID-19</a>
+        </div>
+    </nav>
+
+    <!-- Contenedor principal -->
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="form-container text-center">
+                    <h1 class="mb-4 text-success">Sube una radiografía</h1>
+                    <p class="mb-4 text-muted">Clasifica la imagen en "Con COVID-19" o "Sin COVID-19".</p>
+                    <form action="{% url 'predict_image' %}" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <input class="form-control" type="file" name="image" accept="image/*" required>
+                        </div>
+                        <button class="btn btn-lg w-100" type="submit">Clasificar Imagen</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>

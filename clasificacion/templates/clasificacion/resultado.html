@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado de la Clasificación</title>
+    <!-- Bootstrap CSS -->
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <style>
+        body {
+            background-color: #e8f5e9; /* Fondo verde claro */
+        }
+        .navbar {
+            background-color: #388e3c; /* Verde oscuro */
+        }
+        .navbar-brand {
+            color: #ffffff !important;
+        }
+        .result-container {
+            background: #ffffff; /* Fondo blanco */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #4caf50; /* Verde mediano */
+        }
+        p strong {
+            color: #388e3c; /* Verde oscuro */
+        }
+        a {
+            color: #ffffff;
+            background-color: #4caf50;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        a:hover {
+            background-color: #388e3c;
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">Clasificador COVID-19</a>
+        </div>
+    </nav>
+
+    <!-- Contenedor principal -->
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="result-container text-center">
+                    <h1>Resultado de la Clasificación</h1>
+                    <p class="mt-3">La radiografía ha sido clasificada como: <strong>{{ result }}</strong></p>
+                    <img src="{{ img_url }}" alt="Imagen subida" class="img-fluid mt-3" style="max-width: 100%; border: 1px solid #4caf50; border-radius: 5px;">
+                    <br><br>
+                    <a href="{% url 'predict_image' %}" class="btn mt-3">Cargar otra imagen</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>
